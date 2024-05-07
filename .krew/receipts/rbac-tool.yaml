@@ -1,0 +1,66 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  creationTimestamp: "2024-05-07T14:00:10Z"
+  name: rbac-tool
+spec:
+  description: |-
+    This plugin is a collection of RBAC tools to simplify analysis and configuration.
+    You can visualize, analyze, query permissions as well as generate policies in multiple ways.
+
+    Examples:
+    # Generate HTML visualzation of your RBAC permissions
+    kubectl rbac-tool viz
+
+    # Query who can read secrets
+    kubectl rbac-tool who-can get secret
+
+    # Generate a ClusterRole policy that allows to read everything except secrets and services
+    kubectl rbac-tool gen --deny-resources=secrets.,services. --allowed-verbs=get,list
+  homepage: https://github.com/alcideio/rbac-tool
+  platforms:
+  - bin: rbac-tool
+    files: null
+    selector:
+      matchLabels:
+        arch: amd64
+        os: linux
+    sha256: ab1dcf698283e8a6ec0f554c3b94b3a27aee091711b2351c5daf8f673bbcb62d
+    uri: https://github.com/alcideio/rbac-tool/releases/download/v1.18.0/rbac-tool_v1.18.0_linux_amd64.tar.gz
+  - bin: rbac-tool
+    files: null
+    selector:
+      matchLabels:
+        arch: arm64
+        os: linux
+    sha256: 1aa1d14e8ac96c1a6977e3d1333b9a9b0cd8356bb46628ebe00a9b4a9e8ab327
+    uri: https://github.com/alcideio/rbac-tool/releases/download/v1.18.0/rbac-tool_v1.18.0_linux_arm64.tar.gz
+  - bin: rbac-tool
+    files: null
+    selector:
+      matchLabels:
+        arch: amd64
+        os: darwin
+    sha256: 85b9caa164d395e82fc86e875bf89d9d99e236aa04cbf42b423be1b33f9a4393
+    uri: https://github.com/alcideio/rbac-tool/releases/download/v1.18.0/rbac-tool_v1.18.0_darwin_amd64.tar.gz
+  - bin: rbac-tool
+    files: null
+    selector:
+      matchLabels:
+        arch: arm64
+        os: darwin
+    sha256: b0696f6d604d266888e981d3bc237a87c6e42e5d1b52484169ae5abf381546f7
+    uri: https://github.com/alcideio/rbac-tool/releases/download/v1.18.0/rbac-tool_v1.18.0_darwin_arm64.tar.gz
+  - bin: rbac-tool.exe
+    files: null
+    selector:
+      matchLabels:
+        arch: amd64
+        os: windows
+    sha256: 8d9ba3426e64e64e56b359546e307f713361b51a38d50d7b6180f05c42e391bd
+    uri: https://github.com/alcideio/rbac-tool/releases/download/v1.18.0/rbac-tool_v1.18.0_windows_amd64.tar.gz
+  shortDescription: Plugin to analyze RBAC permissions and generate policies
+  version: v1.18.0
+status:
+  source:
+    name: default
